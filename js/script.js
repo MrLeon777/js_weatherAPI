@@ -1,5 +1,5 @@
 let city = 'Нижний Новгород'
-const urlAPI = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=f96779a4808d1bec2927bfe209f1d028&lang=ru&units=metric&cnt=6`; // https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=f96779a4808d1bec2927bfe209f1d028&lang=ru&units=metric&cnt=6
+const urlAPI = 'js/data.json'; // `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=f96779a4808d1bec2927bfe209f1d028&lang=ru&units=metric&cnt=6`
 const celsius = '˚'
 const percent = ' %'
 const mmMercury = ' мм рт ст'
@@ -15,7 +15,6 @@ const imgIdList = {
   '11': 'thunderstorm',
   '13': 'snow',
   '50': 'mist',
-
 }
 
 async function getData() {
@@ -87,10 +86,29 @@ function render(data) {
 }
 
 function start() {
-  getData().then((data) => {
-    render(data)
-    changeTime(data)
-  })
+  if (localStorage.getItem('weather')) {
+    let data = JSON.parse(localStorage.getItem('weather'));
+    render(data);
+    changeTime(data);
+    updateData(data);
+  }  else {
+    getData().then((data) => {
+      render(data)
+      changeTime(data)
+      localStorage.setItem('weather', JSON.stringify(data))
+    })
+  }
+}
+
+function updateData(data) {
+  if (data.list[1].dt > Math.floor(Date.now() / 1000)) {
+    localStorage.clear();
+    getData().then((data) => {
+      render(data)
+      changeTime(data)
+      localStorage.setItem('weather', JSON.stringify(data))
+    })
+  }
 }
 
 function changeTime(data) {
@@ -105,5 +123,6 @@ function changeTime(data) {
 }
 
 start()
+
 
 

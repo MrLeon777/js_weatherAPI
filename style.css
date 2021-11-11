@@ -7,6 +7,7 @@
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: #f2f2f2;
+  overflow-y: hidden;
 }
 
 .day {
@@ -58,6 +59,7 @@
 
 .main .city {
   font-size: 70px;
+  text-align: center;
 }
 
 .main p {
@@ -71,10 +73,6 @@
 
 .time {
   font-size: 20px;
-}
-
-.forecast_temp {
-  font-size: 30px;
 }
 
 .weater_info .forecast_group {
@@ -91,13 +89,16 @@
   text-align: center;
 }
 
+.weater_info .forecast_group .forecast .forecast_temp {
+  font-size: 30px;
+}
+
 .weater_info .forecast_group .forecast .weather_icon {
   margin-top: 19px;
   margin-bottom: 23px;
 }
 
 .weater_info .forecast_group .forecast .weather_icon img {
-  display: block;
   height: 110px;
   width: 110px;
 }
@@ -126,5 +127,50 @@
 
 .forecast_info div p {
   font-size: 30px;
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    max-width: 360px;
+  }
+  .main {
+    margin-top: 6px;
+  }
+  .main .city {
+    font-size: 50px;
+  }
+  .main p {
+    font-size: 18px;
+  }
+  .main .temp {
+    font-size: 75px;
+  }
+  .time {
+    font-size: 16px;
+  }
+  .weater_info .forecast_group {
+    margin-bottom: 39px;
+  }
+  .weater_info .forecast_group .forecast .forecast_temp {
+    font-size: 18px;
+  }
+  .weater_info .forecast_group .forecast .weather_icon {
+    margin-top: 15px;
+    margin-bottom: 19px;
+  }
+  .weater_info .forecast_group .forecast .weather_icon img {
+    height: 35px;
+    width: 35px;
+  }
+  .forecast_info div {
+    margin-bottom: 21px;
+  }
+  .forecast_info div h1 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .forecast_info div p {
+    font-size: 20px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
