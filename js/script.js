@@ -1,4 +1,4 @@
-let city = 'Нижний Новгород'
+const city = 'Нижний Новгород'
 const urlAPI = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=f96779a4808d1bec2927bfe209f1d028&lang=ru&units=metric&cnt=6`;
 const celsius = '˚'
 const percent = ' %'
