@@ -96,6 +96,7 @@
 .weater_info .forecast_group .forecast .weather_icon {
   margin-top: 19px;
   margin-bottom: 23px;
+  overflow-x: hidden;
 }
 
 .weater_info .forecast_group .forecast .weather_icon img {
