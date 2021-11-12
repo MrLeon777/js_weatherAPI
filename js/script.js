@@ -101,7 +101,7 @@ function start() {
 }
 
 function updateData(data) {
-  if (data.list[1].dt > Math.floor(Date.now() / 1000)) {
+  if (data.list[1].dt < Math.floor(Date.now() / 1000)) {
     localStorage.clear();
     getData().then((data) => {
       render(data)
