@@ -114,7 +114,7 @@ function updateData(data) {
 function changeTime(data) {
   let backgroundApp = document.querySelector('.weather_app');
   let currentTime = Math.floor(Date.now() / 1000);
-  if (data.city.sunrise < currentTime > data.city.sunset) {
+  if ( data.city.sunrise < currentTime && currentTime > data.city.sunset) {
     backgroundApp.classList.add('day');
   } else {
     backgroundApp.classList.add('night');
